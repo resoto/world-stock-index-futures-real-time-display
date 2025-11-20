@@ -1,0 +1,13 @@
+name = "world-stock-index-futures"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[site]
+bucket = "./public"
+
+[env.production]
+name = "world-stock-index-futures"
+
+[env.development]
+name = "world-stock-index-futures-dev"
+
