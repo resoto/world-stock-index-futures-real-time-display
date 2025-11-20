@@ -1,4 +1,4 @@
-name = "world-stock-index-futures"
+name = "world-stock-index-futures-real-time-display"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 
