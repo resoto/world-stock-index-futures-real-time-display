@@ -196,16 +196,13 @@ export default {
     }
 
     // 静的ファイルの提供（Workers Assetsを使用）
-    // 本番環境では、Workers AssetsまたはPagesを使用
-    if (path === '/' || path === '/index.html') {
-      // HTMLファイルを返す（実際のデプロイ時はWorkers Assetsを使用）
-      return new Response('Static files should be served via Workers Assets or Pages', {
-        status: 200,
-        headers: {
-          ...corsHeaders,
-          'Content-Type': 'text/html',
-        },
-      });
+    // Workers Assetsが有効な場合、env.ASSETSを使用
+    if (env && env.ASSETS) {
+      try {
+        return await env.ASSETS.fetch(request);
+      } catch (e) {
+        // フォールバック
+      }
     }
 
     // 404
